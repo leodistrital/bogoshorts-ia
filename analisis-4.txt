@@ -1,0 +1,177 @@
+🌐 Estructura General del Universo Digital
+text
++-------------------------------------------+
+|            UNIVERSO (Web Principal)         |
+|   - Página principal con acceso a mundos   |
+|   - Menú de navegación global              |
+|   - Banner de actualidad                   |
+|   - Noticias generales                     |
+|   - Contacto y mapa de sitio               |
++-------------------------------------------+
+                |
+                | (Enlaces a mundos)
+                v
++-------------------------------------------+
+|            MUNDO 1: BOGOSHORTS             |
+|   - Festival                               |
+|   - Convocatoria                           |
+|   - Acreditaciones                         |
+|   - Programación                           |
+|   - Secciones                              |
+|   - Escenarios                             |
+|   - Santa Lucía                            |
+|   - Jurados                                |
+|   - Al Tablero                             |
+|   - Expone                                 |
+|   - Catálogo                               |
+|   - Poster                                 |
++-------------------------------------------+
+
++-------------------------------------------+
+|            MUNDO 2: BFM                    |
+|   - (Secciones propias de BFM)            |
+|   - Puede compartir algunas secciones     |
+|     con Bogoshorts (ej. Jurados, Catálogo)|
++-------------------------------------------+
+
++-------------------------------------------+
+|            MUNDO 3: IMAGINATON             |
+|   - (Secciones propias de IMAGINATON)     |
+|   - Comparte secciones con otros mundos   |
++-------------------------------------------+
+🧩 Detalle de secciones compartidas vs propias
+Sección	Bogoshorts	BFM	Imaginaton	Compartida
+Festival	✅	❌	❌	No
+Convocatoria	✅	❌	❌	No
+Acreditaciones	✅	❌	❌	No
+Programación	✅	❌	❌	No
+Secciones	✅	✅	✅	Sí
+Escenarios	✅	❌	❌	No
+Santa Lucía	✅	❌	❌	No
+Jurados	✅	✅	✅	Sí
+Al Tablero	✅	❌	❌	No
+Expone	✅	✅	✅	Sí
+Catálogo	✅	✅	✅	Sí
+Poster	✅	❌	❌	No
+Noches Bogoshorts	✅	❌	❌	No
+Mosaico secciones	✅	✅	✅	Sí
+Video resumen	✅	✅	✅	Sí
+Logos socios	✅	✅	✅	Sí
+Contacto básico	✅	✅	✅	Sí
+Mapa sitio	✅	✅	✅	Sí
+🗺️ Diagrama de navegación entre mundos
+text
+[Universo]
+   |
+   |---> [Bogoshorts]
+   |        |---> Secciones propias
+   |        |---> Secciones compartidas (con BFM e Imaginaton)
+   |
+   |---> [BFM]
+   |        |---> Secciones propias
+   |        |---> Secciones compartidas
+   |
+   |---> [Imaginaton]
+            |---> Secciones propias
+            |---> Secciones compartidas
+📌 Notas clave para el cliente
+El Universo es el portal central que agrupa y da acceso a los mundos.
+
+Cada mundo es un sitio web independiente (con su propio diseño y contenido), pero comparten ciertas secciones (como Jurados, Catálogo, etc.) para mantener coherencia y evitar duplicar información.
+
+Las secciones compartidas pueden ser iframes, APIs o bases de datos comunes, según la arquitectura técnica que definan.
+
+Si necesitas que lo convierta en un diagrama visual (como un mapa mental o flujo), puedo generarlo en formato imagen o en herramientas como Miro, Figma o Draw.io. ¿Te gustaría que lo haga?
+
+si haslo
+Perfecto. Como no puedo generar imágenes directamente en este chat, te daré dos opciones prácticas para que puedas visualizar y compartir la estructura con tu cliente:
+
+✅ Opción 1: Diagrama en texto (lista jerárquica)
+Puedes copiar esto y pegarlo en Miro, Figma, Draw.io o incluso PPT para crear el gráfico visual:
+
+text
+UNIVERSO (Portal Central)
+│
+├── ACCESO A MUNDOS (menú principal)
+│
+├── COMPONENTES COMPARTIDOS (globales)
+│   ├── Secciones (general)
+│   ├── Jurados
+│   ├── Expone
+│   ├── Catálogo
+│   ├── Mosaico secciones
+│   ├── Video resumen
+│   ├── Logos socios
+│   ├── Contacto básico
+│   └── Mapa sitio
+│
+└── MUNDOS (sitios independientes)
+    │
+    ├── 🌍 MUNDO BOGOSHORTS
+    │   ├── Festival
+    │   ├── Convocatoria
+    │   ├── Acreditaciones
+    │   ├── Programación
+    │   ├── Secciones (compartida)
+    │   ├── Escenarios
+    │   ├── Santa Lucía
+    │   ├── Jurados (compartida)
+    │   ├── Al Tablero
+    │   ├── Expone (compartida)
+    │   ├── Catálogo (compartida)
+    │   ├── Poster
+    │   ├── Noches Bogoshorts
+    │   ├── Mosaico secciones (compartida)
+    │   ├── Video resumen (compartido)
+    │   ├── Logos socios (compartido)
+    │   ├── Contacto básico (compartido)
+    │   └── Mapa sitio (compartido)
+    │
+    ├── 🌍 MUNDO BFM
+    │   ├── [secciones propias de BFM]
+    │   ├── Secciones (compartida)
+    │   ├── Jurados (compartida)
+    │   ├── Expone (compartida)
+    │   ├── Catálogo (compartida)
+    │   ├── Mosaico secciones (compartida)
+    │   ├── Video resumen (compartido)
+    │   ├── Logos socios (compartido)
+    │   ├── Contacto básico (compartido)
+    │   └── Mapa sitio (compartido)
+    │
+    └── 🌍 MUNDO IMAGINATON
+        ├── [secciones propias de Imaginaton]
+        ├── Secciones (compartida)
+        ├── Jurados (compartida)
+        ├── Expone (compartida)
+        ├── Catálogo (compartida)
+        ├── Mosaico secciones (compartida)
+        ├── Video resumen (compartido)
+        ├── Logos socios (compartido)
+        ├── Contacto básico (compartido)
+        └── Mapa sitio (compartido)
+✅ Opción 2: Diagrama visual (recomendado)
+Te sugiero usar Draw.io (gratis y online) con esta estructura:
+
+Ve a https://app.diagrams.net/
+
+Crea un nuevo diagrama en blanco
+
+Usa esta distribución:
+
+text
+[ CUADRO CENTRAL GRANDE ] → UNIVERSO
+   │
+   ├── [CUADRO] ACCESO A MUNDOS (menú)
+   │
+   ├── [CUADRO] COMPONENTES COMPARTIDOS
+   │    └── (lista de secciones compartidas)
+   │
+   └── 3 CUADROS GRANDES HORIZONTALES:
+        ├── BOGOSHORTS
+        ├── BFM
+        └── IMAGINATON
+
+   Cada mundo tiene:
+        - Sus propias secciones (arriba)
+        - Secciones compartidas (abajo, con ícono de "nube" o "enlace")

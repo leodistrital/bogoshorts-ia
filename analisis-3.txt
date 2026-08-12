@@ -1,0 +1,74 @@
+Estructura general de los sitios web BOGOSHORTS
+Según el documento y lo que comentaste, Universo BOGOSHORTS es el hub central (la web madre). Desde ella se accede a los distintos “mundos” (webs o secciones independientes), cada uno con su propio menú y contenido, pero compartiendo elementos globales (header, noticias, logos, contacto, etc.).
+Diagrama de arquitectura (visión general)
+text┌─────────────────────────────────────────────────────────────────────────────┐
+│                        UNIVERSO BOGOSHORTS (Hub central)                     │
+│  • Cabezote (Inscripción / Newsletter / Comunidades / Logo / Idioma / RRSS) │
+│  • Menú de Universo (Historia, Miembros, Agenda, Convocatorias, Bogoshop…)  │
+│  • Banner de Actualidad + Noticias + Próximamente                           │
+│  • Elementos compartidos: Calificador A, Logos socios, Contacto, Mapa sitio │
+└───────────────────────────────┬─────────────────────────────────────────────┘
+                                │
+          ┌─────────────────────┼─────────────────────┬─────────────────────┐
+          │                     │                     │                     │
+          ▼                     ▼                     ▼                     ▼
+┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐
+│  MOVIMIENTO     │   │   FESTIVAL      │   │  FILM AGENCY    │   │    ACADEMY      │
+│  BOGOSHORTS     │   │  BOGOSHORTS     │   │  BOGOSHORTS     │   │  BOGOSHORTS     │
+│                 │   │                 │   │                 │   │                 │
+│ (mundo propio)  │   │ (mundo propio)  │   │ (mundo propio)  │   │ (mundo propio)  │
+└─────────────────┘   └────────┬────────┘   └─────────────────┘   └─────────────────┘
+                               │
+                               │  (detalle del Festival)
+                               ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     HOME – Festival BOGOSHORTS                               │
+│  • Hereda Cabezote + Menú de Universo + Banner de Actualidad                 │
+│  • Menú propio del Festival:                                                 │
+│    FESTIVAL | CONVOCATORIA | ACREDITACIONES | PROGRAMACIÓN | SECCIONES |     │
+│    ESCENARIOS | SANTA LUCÍA | JURADOS | AL TABLERO | EXPONE | CATÁLOGO | POSTER │
+│  • Secciones destacadas:                                                     │
+│    – BFM  |  IMAGINATON                                                      │
+│    – NOCHES BOGOSHORTS (Revelación / Inaugural / Frankenstein / Santa Lucía) │
+│    – Mosaico de Secciones en colores                                         │
+│    – Video Resumen                                                           │
+│  • Elementos compartidos (igual que Universo)                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+Cómo se relacionan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NivelQué esContenido propioContenido compartidoUniversoHub / portal principalMenú de Universo (Historia, Miembros, Agenda, Convocatorias, Tienda, Archivo, Equipo, Aliados, Trabaje con nosotros, Donar, Prensa, Contacto)Cabezote, Banner de actualidad, Noticias, Próximamente, Logos, Contacto básico, Mapa del sitioMundos (Movimiento, Festival, Film Agency, Academy)Webs o secciones independientes accesibles desde UniversoCada uno tiene su propio menú y páginas internasHeredan el cabezote, banner de noticias y footer/elementos globalesFestival (ejemplo detallado)Mundo más desarrollado en el documentoMenú de Festival + Noches + Mosaico de secciones + Video resumen + BFM / ImaginatonTodo lo que viene de Universo
+Flujo de navegación típico
+
+Usuario entra a Universo BOGOSHORTS
+Desde el menú de componentes o desde las tarjetas de los mundos entra a Festival (o Movimiento / Agency / Academy)
+Dentro de Festival navega por su menú propio (Programación, Secciones, Noches, etc.)
+En cualquier momento puede volver al Universo o cambiar de mundo
+Los elementos globales (noticias, logos, contacto) se mantienen consistentes en todos los sitios

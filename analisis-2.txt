@@ -1,0 +1,135 @@
+Sí. Revisando el documento, la idea que plantea el cliente se entiende mejor como una arquitectura de sitios web tipo “Universo → Mundos”.
+
+El documento muestra que Universo BOGOSHORTS tiene elementos propios y, desde su menú, permite entrar a diferentes espacios: Festival, Film Agency, Academy, etc. Además, cada mundo tiene su propio menú y contenido.
+
+Así lo interpretaría
+                         ┌───────────────────────────┐
+                         │     UNIVERSO BOGOSHORTS   │
+                         │        WEB PRINCIPAL      │
+                         └─────────────┬─────────────┘
+                                       │
+                    ┌──────────────────┼──────────────────┐
+                    │                  │                  │
+                    ▼                  ▼                  ▼
+             ┌─────────────┐   ┌─────────────┐   ┌──────────────┐
+             │ MOVIMIENTO  │   │   FESTIVAL  │   │ FILM AGENCY  │
+             │ BOGOSHORTS  │   │ BOGOSHORTS  │   │  BOGOSHORTS  │
+             └──────┬──────┘   └──────┬──────┘   └──────┬───────┘
+                    │                  │                  │
+                    ▼                  ▼                  ▼
+              Sus propias        Sus propias        Sus propias
+                secciones          secciones          secciones
+
+
+                         ┌─────────────────┐
+                         │ BOGOSHORTS      │
+                         │    ACADEMY      │
+                         └────────┬────────┘
+                                  │
+                                  ▼
+                           Sus propias
+                            secciones
+
+Y te generé una propuesta gráfica basada específicamente en el documento:
+
+La idea central es esta:
+
+1. Universo = Hub / portal principal
+
+El Universo BOGOSHORTS sería la capa superior.
+
+Ahí vivirían elementos que son comunes a toda la experiencia:
+
+Logo / identidad
+Menú de Universo
+Cambio de idioma
+Newsletter
+Comunidades
+Redes sociales
+Navegación entre mundos
+
+El documento menciona explícitamente el “Menú de Universo” y elementos como Historia, Miembros, Agenda, Convocatorias, Bogoshop, Archivo, Equipo, Aliados, etc.
+
+2. Los "Mundos" = sitios especializados
+
+Cada mundo debería entenderse como un sitio web independiente, pero perteneciente al Universo.
+
+Por ejemplo:
+
+Festival BOGOSHORTS
+
+Festival
+├── Convocatoria
+├── Acreditaciones
+├── Programación
+├── Secciones
+├── Escenarios
+├── Santa Lucía
+├── Jurados
+├── Al Tablero
+├── Expone
+├── Catálogo
+└── Póster
+
+Eso sale directamente del menú presentado en el documento.
+
+Mientras que el Universo tiene otro conjunto de contenidos:
+
+Universo
+├── Historia
+├── Miembros
+├── Agenda
+├── Convocatorias
+├── Bogoshop
+├── Archivo
+├── Equipo
+├── Aliados
+├── Trabaje con nosotros
+├── Donar / Apoyar
+├── Prensa
+└── Contacto
+3. Lo importante: no son simplemente secciones
+
+Yo no lo plantearía técnicamente como un único sitio con muchas secciones.
+
+Lo plantearía como:
+
+                         UNIVERSO
+                            │
+             ┌──────────────┼──────────────┐
+             │              │              │
+             ▼              ▼              ▼
+          MUNDO 1        MUNDO 2        MUNDO 3
+             │              │              │
+        contenido       contenido      contenido
+        propio          propio         propio
+             │              │              │
+             └──────────────┼──────────────┘
+                            │
+                     COMPONENTES
+                     COMPARTIDOS
+
+Es decir, hay una arquitectura de ecosistema digital.
+
+Los mundos pueden compartir componentes como:
+
+Header
+Logo
+Menú Universo
+Cambio de idioma
+Redes sociales
+Newsletter
+Footer
+Contacto
+Mapa del sitio
+Identidad visual
+
+Pero cada mundo tiene:
+
+Su propia navegación
+Sus propias páginas
+Sus propios contenidos
+Sus propios módulos
+Posiblemente su propia identidad gráfica
+
+Esto se ve muy claramente al comparar las dos páginas del documento: Home - Universo BOGOSHORTS y Home - Festival BOGOSHORTS.

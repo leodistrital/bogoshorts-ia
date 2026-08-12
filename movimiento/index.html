@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movimiento BOGOSHORTS - Mundo de Comunidad y Realización</title>
+  <meta name="description" content="Mundo Movimiento BOGOSHORTS: Comunidad de cineastas, proyectos independientes y red de difusión de cortometrajes.">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="theme-movimiento">
+
+  <!-- STICKY HEADER SYSTEM -->
+  <header class="sticky-header-wrapper">
+    <!-- 1. CABEZOTE (UTILITY BAR) -->
+    <div class="cabezote-bar">
+      <div class="container cabezote-content">
+        <div class="brand-identity">
+          <a href="../index.html" class="logo-symbol">B</a>
+          <span class="brand-name">UNIVERSO BOGOSHORTS</span>
+          <span class="brand-badge" style="background: rgba(220, 38, 38, 0.1); color: #dc2626;">Mundo Movimiento</span>
+        </div>
+        <div class="cabezote-actions">
+          <button class="cabezote-btn" id="langToggleBtn" data-lang="ES" title="Cambiar Idioma (Español, English, Português, Français)">
+            🌐 <span class="lang-text">ES</span>
+          </button>
+          <button class="cabezote-btn" data-modal-target="genericModal" data-modal-title="Comunidades Movimiento">
+            👥 <span>Comunidades</span>
+          </button>
+          <button class="cabezote-btn btn-primary" data-modal-target="newsletterModal">
+            ✉️ <span>Newsletter</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. MENÚ DE UNIVERSO (GLOBAL LAYER 1) -->
+    <div class="universo-nav-bar">
+      <div class="container universo-nav-content">
+        <span class="universo-nav-label">Navegación Global:</span>
+        <ul class="universo-menu-links">
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Historia BOGOSHORTS">Historia</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Miembros de la Red">Miembros</a></li>
+          <li><a href="../agenda/index.html" class="universo-link">Agenda</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Convocatorias Abiertas">Convocatorias</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="BOGOSHOP (Tienda Oficial)">Bogoshop</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Archivo Cinematográfico">Archivo</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Equipo BOGOSHORTS">Equipo</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Aliados y Coproductores">Aliados</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Trabaje con Nosotros">Trabaje con Nosotros</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Donar y Apoyar">Donar / Apoyar</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Sala de Prensa">Prensa</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Contacto General">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. ACCESO A LOS MUNDOS (LAYER 2 SWITCHER - LOS 4 MUNDOS DEL ECOSISTEMA) -->
+    <div class="world-switcher-bar">
+      <div class="container world-switcher-content">
+        <nav class="world-tabs">
+          <a href="../index.html" class="world-tab" data-world="universo">
+            <span class="dot"></span> Universo
+          </a>
+          <a href="index.html" class="world-tab active" data-world="movimiento">
+            <span class="dot"></span> Movimiento
+          </a>
+          <a href="../festival/index.html" class="world-tab" data-world="festival">
+            <span class="dot"></span> Festival
+          </a>
+          <a href="../film-agency/index.html" class="world-tab" data-world="agency">
+            <span class="dot"></span> Film Agency
+          </a>
+          <a href="../academy/index.html" class="world-tab" data-world="academy">
+            <span class="dot"></span> Academy
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 4. MENÚ PROPIO DEL MUNDO MOVIMIENTO -->
+    <div class="world-menu-bar">
+      <div class="container">
+        <ul class="world-menu-items">
+          <li><a href="#que-es" class="world-menu-link active">¿Qué es el Movimiento?</a></li>
+          <li><a href="#comunidades" class="world-menu-link">Comunidades</a></li>
+          <li><a href="#proyectos" class="world-menu-link">Proyectos</a></li>
+          <li><a href="#participa" class="world-menu-link">Participa</a></li>
+          <li><a href="#noticias" class="world-menu-link">Noticias del Movimiento</a></li>
+          <li><a href="#recursos" class="world-menu-link">Recursos</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN HERO SECTION -->
+  <main>
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge">🔴 MUNDO MOVIMIENTO BOGOSHORTS</div>
+          <h1 class="hero-title">Fe en el cortometraje durante todo el año</h1>
+          <p class="hero-subtitle">
+            El Movimiento BOGOSHORTS es la red viva que conecta creadores, realizadores y espectadores 365 días al año a través de exhibición itinerante, laboratorios comunitarios y proyecciones.
+          </p>
+          <div class="hero-buttons">
+            <a href="#participa" class="btn btn-primary">Únete al Movimiento 🔥</a>
+            <a href="#proyectos" class="btn btn-secondary">Ver Proyectos Activos</a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div style="font-size: 0.75rem; text-transform: uppercase; color: #dc2626; margin-bottom: 0.5rem; letter-spacing: 0.1em; font-weight: 700;">
+            Menú Específico de este Mundo:
+          </div>
+          <ul style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem;">
+            <li style="padding: 0.5rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-color);">📌 <strong>¿Qué es el Movimiento?</strong> — Manifiesto e historia</li>
+            <li style="padding: 0.5rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-color);">👥 <strong>Comunidades</strong> — Redes regionales e internacionales</li>
+            <li style="padding: 0.5rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-color);">🎥 <strong>Proyectos</strong> — Bogoshorts en la Ciudad & Ruta de cine</li>
+            <li style="padding: 0.5rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-color);">🙋 <strong>Participa</strong> — Convocatorias comunitarias abiertas</li>
+            <li style="padding: 0.5rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-color);">📰 <strong>Noticias del Movimiento</strong> — Novedades y bitácoras</li>
+            <li style="padding: 0.5rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-color);">📁 <strong>Recursos</strong> — Kits de difusión y guías de exhibición</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION CONTENT SIMULATION -->
+    <section class="section-padding" id="que-es">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Identidad del Mundo</div>
+          <h2 class="section-title">El Cortometraje como Transformación Social</h2>
+        </div>
+        <p style="color: var(--text-muted); max-width: 800px; font-size: 1.05rem;">
+          Creemos en el formato corto no como un paso previo al largometraje, sino como un lenguaje autónomo, potente e incisivo. El Movimiento reúne a realizadores y audiencias para democratizar el acceso al cine independiente.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER UNIFICADO GLOBAL -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">UNIVERSO BOGOSHORTS</div>
+          <p class="footer-desc">
+            El ecosistema de cortometraje más influyente de la región. Portal institucional, festival, agencia de distribución y laboratorio académico.
+          </p>
+        </div>
+        <div>
+          <h5 class="footer-col-title">Mundus</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html">Universo</a></li>
+            <li><a href="index.html">Movimiento BOGOSHORTS</a></li>
+            <li><a href="../festival/index.html">Festival BOGOSHORTS</a></li>
+            <li><a href="../film-agency/index.html">Film Agency</a></li>
+            <li><a href="../academy/index.html">Academy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-col-title">Menú Universo</h5>
+          <ul class="footer-links">
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Historia">Historia</a></li>
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Miembros">Miembros</a></li>
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Convocatorias">Convocatorias</a></li>
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Bogoshop">Bogoshop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-col-title">Contacto</h5>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Bogotá D.C., Colombia<br>movimiento@bogoshorts.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 UNIVERSO BOGOSHORTS - Mundo Movimiento.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div class="modal-backdrop" id="newsletterModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Boletín Movimiento BOGOSHORTS</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="newsletterForm">
+        <div class="form-group">
+          <label class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-input" placeholder="tu@email.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Suscribirse</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="genericModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Sección del Universo</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">Vista de la sección institucional del Universo.</p>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universo BOGOSHORTS - Ecosistema Cinematográfico</title>
+  <meta name="description" content="Portal oficial del Universo BOGOSHORTS. Conecta con el Festival, Movimiento, Film Agency y Academy.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="theme-universo">
+
+  <!-- STICKY HEADER SYSTEM -->
+  <header class="sticky-header-wrapper">
+    <!-- 1. CABEZOTE (UTILITY BAR) -->
+    <div class="cabezote-bar">
+      <div class="container cabezote-content">
+        <div class="brand-identity">
+          <a href="index.html" class="logo-symbol">B</a>
+          <span class="brand-name">UNIVERSO BOGOSHORTS</span>
+          <span class="brand-badge">Universo</span>
+        </div>
+        <div class="cabezote-actions">
+          <button class="cabezote-btn" id="langToggleBtn" data-lang="ES" title="Cambiar Idioma (Español, English, Português, Français)">
+            🌐 <span class="lang-text">ES</span>
+          </button>
+          <button class="cabezote-btn" data-modal-target="genericModal" data-modal-title="Comunidades BOGOSHORTS">
+            👥 <span>Comunidades</span>
+          </button>
+          <button class="cabezote-btn btn-primary" data-modal-target="newsletterModal">
+            ✉️ <span>Newsletter</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. MENÚ DE UNIVERSO (GLOBAL LAYER 1) -->
+    <div class="universo-nav-bar">
+      <div class="container universo-nav-content">
+        <span class="universo-nav-label">Navegación Global:</span>
+        <ul class="universo-menu-links">
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Historia BOGOSHORTS">Historia</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Miembros de la Red">Miembros</a></li>
+          <li><a href="agenda/index.html" class="universo-link">Agenda</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Convocatorias Abiertas">Convocatorias</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="BOGOSHOP (Tienda Oficial)">Bogoshop</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Archivo Cinematográfico">Archivo</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Equipo BOGOSHORTS">Equipo</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Aliados y Coproductores">Aliados</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Trabaje con Nosotros">Trabaje con Nosotros</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Donar y Apoyar">Donar / Apoyar</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Sala de Prensa">Prensa</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Contacto General">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. ACCESO A LOS MUNDOS (LAYER 2 SWITCHER - LOS 4 MUNDOS DEL ECOSISTEMA) -->
+    <div class="world-switcher-bar">
+      <div class="container world-switcher-content">
+        <nav class="world-tabs">
+          <a href="index.html" class="world-tab active" data-world="universo">
+            <span class="dot"></span> Universo
+          </a>
+          <a href="movimiento/index.html" class="world-tab" data-world="movimiento">
+            <span class="dot"></span> Movimiento
+          </a>
+          <a href="festival/index.html" class="world-tab" data-world="festival">
+            <span class="dot"></span> Festival
+          </a>
+          <a href="film-agency/index.html" class="world-tab" data-world="agency">
+            <span class="dot"></span> Film Agency
+          </a>
+          <a href="academy/index.html" class="world-tab" data-world="academy">
+            <span class="dot"></span> Academy
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN HERO SECTION -->
+  <main>
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge">✦ ECOSISTEMA CINEMATOGRÁFICO UNIFICADO</div>
+          <h1 class="hero-title">El hogar del cortometraje en América Latina</h1>
+          <p class="hero-subtitle">
+            Universo BOGOSHORTS es la puerta de entrada a los 4 mundos especializados dedicados al cortometraje, la formación, la distribución y la cultura audiovisual.
+          </p>
+          <div class="hero-buttons">
+            <a href="festival/index.html" class="btn btn-primary">Explorar Festival 🎬</a>
+            <a href="#mundos" class="btn btn-secondary">Ver Mundos 🌐</a>
+          </div>
+        </div>
+
+        <!-- BANNER DE ACTUALIDAD Y NOTICIAS EN EL HERO -->
+        <div class="hero-visual-card" style="border-color: rgba(109, 40, 217, 0.3);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: var(--color-universo); letter-spacing: 0.1em;">
+              🔥 BANNER DE ACTUALIDAD & NOTICIAS
+            </span>
+            <span class="tag" style="background: rgba(109, 40, 217, 0.1); color: var(--color-universo); font-size: 0.7rem;">En Vivo</span>
+          </div>
+
+          <!-- BANNER DESTACADO PRINCIPAL -->
+          <div style="background: linear-gradient(135deg, rgba(109, 40, 217, 0.08), rgba(248, 250, 252, 0.8)); border: 1px solid rgba(109, 40, 217, 0.2); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1rem;">
+            <div style="font-size: 0.7rem; font-weight: 700; color: #6d28d9; text-transform: uppercase; margin-bottom: 0.25rem;">PROXIMAMENTE</div>
+            <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);">
+              Abierta la Convocatoria Oficial Edición 24
+            </h4>
+            <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Inscribe tu cortometraje en las competencias Nacional e Internacional calificadoras a los Premios Oscar® y Goya.
+            </p>
+            <button class="btn btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;" data-modal-target="genericModal" data-modal-title="Convocatoria Abierta 2026">
+              Leer Noticia & Postular →
+            </button>
+          </div>
+
+          <!-- REFEED DE NOTICIAS RECIENTES -->
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">
+            Últimas Novedades del Ecosistema
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+            <div style="padding: 0.6rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;" data-modal-target="genericModal" data-modal-title="In Vitro BFM 2026">
+              <div>
+                <div style="font-size: 0.825rem; font-weight: 600; color: var(--text-main);">In Vitro BFM abre inscripciones para mercado</div>
+                <div style="font-size: 0.725rem; color: var(--text-muted);">Festival BFM • Hace 2 horas</div>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--color-universo);">➔</span>
+            </div>
+
+            <div style="padding: 0.6rem; background: var(--bg-surface); border-radius: 6px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;" data-modal-target="genericModal" data-modal-title="Noche Santa Lucía">
+              <div>
+                <div style="font-size: 0.825rem; font-weight: 600; color: var(--text-main);">Anuncio del comité de jurados internacionales</div>
+                <div style="font-size: 0.725rem; color: var(--text-muted);">Festival • Ayer</div>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--color-universo);">➔</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: EXPLORAR LOS MUNDOS -->
+    <section class="section-padding" id="mundos">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Portal de Entrada</div>
+          <h2 class="section-title">Explora los 4 Mundos del Universo</h2>
+        </div>
+
+        <div class="worlds-grid">
+          <!-- MUNDO 1: MOVIMIENTO -->
+          <div class="world-card" style="--world-color: #dc2626;">
+            <div>
+              <div class="world-card-icon">🔴</div>
+              <h3 class="world-card-title">Movimiento BOGOSHORTS</h3>
+              <p class="world-card-desc">
+                El corazón de la comunidad de realizadores y amantes del cine en formato corto. Encuentros, proyectos y red de difusión continua.
+              </p>
+              <div class="world-card-menu-preview">
+                <div class="world-card-menu-title">Menú del Mundo:</div>
+                <div class="world-card-menu-tags">
+                  <span class="tag">¿Qué es?</span>
+                  <span class="tag">Comunidades</span>
+                  <span class="tag">Proyectos</span>
+                  <span class="tag">Participa</span>
+                  <span class="tag">Noticias</span>
+                  <span class="tag">Recursos</span>
+                </div>
+              </div>
+            </div>
+            <a href="movimiento/index.html" class="world-card-link">Entrar a Movimiento →</a>
+          </div>
+
+          <!-- MUNDO 2: FESTIVAL (INCLUYE BFM E IMAGINATÓN) -->
+          <div class="world-card" style="--world-color: #059669;">
+            <div>
+              <div class="world-card-icon">🟢</div>
+              <h3 class="world-card-title">Festival BOGOSHORTS</h3>
+              <p class="world-card-desc">
+                Festival Internacional de Cortometrajes de Bogotá. Competencia calificadora a los Premios Oscar® y Goya. Incluye el mercado BFM e Imaginatón.
+              </p>
+              <div class="world-card-menu-preview">
+                <div class="world-card-menu-title">Menú del Festival (Incluye BFM e Imaginatón):</div>
+                <div class="world-card-menu-tags">
+                  <span class="tag">Festival</span>
+                  <span class="tag">Convocatoria</span>
+                  <span class="tag">Acreditaciones</span>
+                  <span class="tag">Programación</span>
+                  <span class="tag">Categorías</span>
+                  <span class="tag" style="background: rgba(124, 58, 237, 0.1); color: #7c3aed; font-weight: 700;">BFM Market</span>
+                  <span class="tag" style="background: rgba(234, 88, 12, 0.1); color: #ea580c; font-weight: 700;">Imaginatón</span>
+                  <span class="tag">Noches</span>
+                </div>
+              </div>
+            </div>
+            <a href="festival/index.html" class="world-card-link">Entrar al Festival →</a>
+          </div>
+
+          <!-- MUNDO 3: FILM AGENCY -->
+          <div class="world-card" style="--world-color: #d97706;">
+            <div>
+              <div class="world-card-icon">🟡</div>
+              <h3 class="world-card-title">BOGOSHORTS Film Agency</h3>
+              <p class="world-card-desc">
+                Agencia especializada en la circulación, ventas internacionales y representación de cortometrajes y nuevos talentos.
+              </p>
+              <div class="world-card-menu-preview">
+                <div class="world-card-menu-title">Menú del Mundo:</div>
+                <div class="world-card-menu-tags">
+                  <span class="tag">Quiénes Somos</span>
+                  <span class="tag">Servicios</span>
+                  <span class="tag">Proyectos</span>
+                  <span class="tag">Talentos</span>
+                  <span class="tag">News</span>
+                  <span class="tag">Contacto</span>
+                </div>
+              </div>
+            </div>
+            <a href="film-agency/index.html" class="world-card-link">Entrar a Film Agency →</a>
+          </div>
+
+          <!-- MUNDO 4: ACADEMY -->
+          <div class="world-card" style="--world-color: #2563eb;">
+            <div>
+              <div class="world-card-icon">🔵</div>
+              <h3 class="world-card-title">BOGOSHORTS Academy</h3>
+              <p class="world-card-desc">
+                Plataforma de desarrollo pedagógico y laboratorios de industria para la cualificación del sector cinematográfico.
+              </p>
+              <div class="world-card-menu-preview">
+                <div class="world-card-menu-title">Menú del Mundo:</div>
+                <div class="world-card-menu-tags">
+                  <span class="tag">Programas</span>
+                  <span class="tag">Cursos</span>
+                  <span class="tag">Talleres</span>
+                  <span class="tag">Calendario</span>
+                  <span class="tag">Profesores</span>
+                  <span class="tag">Becas</span>
+                </div>
+              </div>
+            </div>
+            <a href="academy/index.html" class="world-card-link">Entrar a Academy →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SECCIONES COMPARTIDAS EN EL UNIVERSO -->
+    <section class="section-padding" style="background: var(--bg-surface); border-top: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Servicios & Contenido Transversal</div>
+          <h2 class="section-title">Secciones Compartidas (Menú de Universo)</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div style="background: #ffffff; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🛍️</div>
+            <h4 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 0.5rem;">BOGOSHOP (Tienda)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Catálogo de productos oficiales, souvenirs, pósteres de colección y publicaciones del festival.
+            </p>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;" data-modal-target="genericModal" data-modal-title="BOGOSHOP (Tienda)">Ir a Bogoshop</button>
+          </div>
+
+          <div style="background: #ffffff; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📋</div>
+            <h4 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 0.5rem;">Convocatorias Globales</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Inscripciones abiertas para competencias cinematográficas, becas académicas y mercados de industria.
+            </p>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;" data-modal-target="genericModal" data-modal-title="Convocatorias Globales">Ver Convocatorias</button>
+          </div>
+
+          <div style="background: #ffffff; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📰</div>
+            <h4 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 0.5rem;">Sala de Prensa</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Kits de prensa, comunicados oficiales, acreditaciones de medios e imágenes de alta resolución.
+            </p>
+            <button class="btn btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;" data-modal-target="genericModal" data-modal-title="Sala de Prensa">Prensa & Medios</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER UNIFICADO GLOBAL -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">UNIVERSO BOGOSHORTS</div>
+          <p class="footer-desc">
+            El ecosistema de cortometraje más influyente de la región. Portal institucional, festival, agencia de distribución y laboratorio académico.
+          </p>
+          <div class="calificador-a-badge">
+            <span class="calificador-a-icon">🏆</span>
+            <div class="calificador-a-text">
+              <strong>Calificador A Oscars® / BAFTA / Premios Goya</strong><br>
+              Acreditación oficial para la elegibilidad a los premios de la Academia.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-col-title">Mundus</h5>
+          <ul class="footer-links">
+            <li><a href="movimiento/index.html">Movimiento BOGOSHORTS</a></li>
+            <li><a href="festival/index.html">Festival BOGOSHORTS</a></li>
+            <li><a href="film-agency/index.html">Film Agency</a></li>
+            <li><a href="academy/index.html">Academy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-col-title">Menú Universo</h5>
+          <ul class="footer-links">
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Historia">Historia</a></li>
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Miembros">Miembros</a></li>
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Convocatorias">Convocatorias</a></li>
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Bogoshop">Bogoshop</a></li>
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Prensa">Prensa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-col-title">Contacto & Social</h5>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Bogotá D.C., Colombia<br>info@bogoshorts.com
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Instagram">📷</a>
+            <a href="#" class="social-link" title="X / Twitter">🐦</a>
+            <a href="#" class="social-link" title="YouTube">▶️</a>
+            <a href="#" class="social-link" title="Facebook">📘</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 UNIVERSO BOGOSHORTS - Todos los derechos reservados.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="#" data-modal-target="genericModal" data-modal-title="Términos y Condiciones">Términos</a>
+          <a href="#" data-modal-target="genericModal" data-modal-title="Políticas de Privacidad">Privacidad</a>
+          <a href="#" data-modal-target="genericModal" data-modal-title="Mapa del Sitio">Mapa del Sitio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS SYSTEM -->
+  <!-- Newsletter Modal -->
+  <div class="modal-backdrop" id="newsletterModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Boletín Universo BOGOSHORTS</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        Recibe novedades semanales de convocatorias, estrenos, programación del festival y laboratorios.
+      </p>
+      <form id="newsletterForm">
+        <div class="form-group">
+          <label class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-input" placeholder="tu@email.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Suscribirse al Universo</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Generic Section Viewer Modal -->
+  <div class="modal-backdrop" id="genericModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Sección del Universo</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+        Esta es una vista de la sección global seleccionada en el Universo.
+      </p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

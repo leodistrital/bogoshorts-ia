@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda & Programación General - Universo BOGOSHORTS</title>
+  <meta name="description" content="Calendario unificado de funciones de cine, programas de cortometrajes agrupados, muestras regionales, funciones gratuitas y de pago del Universo BOGOSHORTS.">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* Agenda Page Specific Styles */
+    .calendar-filter-bar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      min-width: 110px;
+    }
+
+    .filter-btn {
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.825rem;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--active-accent);
+      color: #ffffff;
+      border-color: var(--active-accent);
+      box-shadow: 0 2px 8px var(--active-accent-glow);
+    }
+
+    /* VIEW SWITCHER TOGGLE (Tarjetas vs Calendario por Días) */
+    .view-toggle-wrapper {
+      display: inline-flex;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      padding: 0.25rem;
+      border-radius: var(--radius-md);
+    }
+
+    .view-toggle-btn {
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .view-toggle-btn.active {
+      background: var(--active-accent);
+      color: #ffffff;
+      box-shadow: 0 2px 6px var(--active-accent-glow);
+    }
+
+    .search-input-box {
+      flex: 1;
+      min-width: 240px;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      font-size: 0.875rem;
+      outline: none;
+    }
+
+    /* CARDS VIEW */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .event-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+      border-color: var(--card-world-color, var(--active-accent));
+    }
+
+    .event-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .world-badge-tag {
+      font-size: 0.725rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    .price-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .price-tag.free {
+      background: rgba(5, 150, 105, 0.1);
+      color: #059669;
+    }
+
+    .price-tag.paid {
+      background: rgba(109, 40, 217, 0.1);
+      color: #6d28d9;
+    }
+
+    .event-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .event-meta {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .shorts-lineup-preview {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .shorts-lineup-title {
+      font-size: 0.725rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .shorts-list {
+      font-size: 0.8rem;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .short-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .short-duration {
+      font-size: 0.725rem;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    /* MODO CALENDARIO GRID (PARRILLA DIARIA PLENO FESTIVAL) */
+    .calendar-grid-view {
+      display: none;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .day-column {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+
+    .day-header {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .day-date-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .day-count-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(109, 40, 217, 0.1);
+      color: var(--color-universo);
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+    }
+
+    .day-schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1rem;
+      padding: 1.25rem;
+    }
+
+    .time-slot-card {
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--slot-color, #059669);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      background: #ffffff;
+      transition: var(--transition);
+    }
+
+    .time-slot-card:hover {
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+
+    .time-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--slot-color, #059669);
+      margin-bottom: 0.3rem;
+    }
+  </style>
+</head>
+<body class="theme-universo">
+
+  <!-- STICKY HEADER SYSTEM -->
+  <header class="sticky-header-wrapper">
+    <!-- 1. CABEZOTE (UTILITY BAR) -->
+    <div class="cabezote-bar">
+      <div class="container cabezote-content">
+        <div class="brand-identity">
+          <a href="../index.html" class="logo-symbol">B</a>
+          <span class="brand-name">UNIVERSO BOGOSHORTS</span>
+          <span class="brand-badge">Agenda General</span>
+        </div>
+        <div class="cabezote-actions">
+          <button class="cabezote-btn" id="langToggleBtn" data-lang="ES" title="Cambiar Idioma (Español, English, Português, Français)">
+            🌐 <span class="lang-text">ES</span>
+          </button>
+          <button class="cabezote-btn" data-modal-target="genericModal" data-modal-title="Comunidades BOGOSHORTS">
+            👥 <span>Comunidades</span>
+          </button>
+          <button class="cabezote-btn btn-primary" data-modal-target="newsletterModal">
+            ✉️ <span>Newsletter</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. MENÚ DE UNIVERSO (GLOBAL LAYER 1) -->
+    <div class="universo-nav-bar">
+      <div class="container universo-nav-content">
+        <span class="universo-nav-label">Navegación Global:</span>
+        <ul class="universo-menu-links">
+          <li><a href="../index.html" class="universo-link">Universo Home</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Historia BOGOSHORTS">Historia</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Miembros de la Red">Miembros</a></li>
+          <li><a href="index.html" class="universo-link active">Agenda</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Convocatorias Abiertas">Convocatorias</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="BOGOSHOP (Tienda Oficial)">Bogoshop</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Archivo Cinematográfico">Archivo</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Equipo BOGOSHORTS">Equipo</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Aliados y Coproductores">Aliados</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Trabaje con Nosotros">Trabaje con Nosotros</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Donar y Apoyar">Donar / Apoyar</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Sala de Prensa">Prensa</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Contacto General">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. ACCESO A LOS MUNDOS (LAYER 2 SWITCHER) -->
+    <div class="world-switcher-bar">
+      <div class="container world-switcher-content">
+        <nav class="world-tabs">
+          <a href="../index.html" class="world-tab" data-world="universo">
+            <span class="dot"></span> Universo
+          </a>
+          <a href="../movimiento/index.html" class="world-tab" data-world="movimiento">
+            <span class="dot"></span> Movimiento
+          </a>
+          <a href="../festival/index.html" class="world-tab" data-world="festival">
+            <span class="dot"></span> Festival
+          </a>
+          <a href="../film-agency/index.html" class="world-tab" data-world="agency">
+            <span class="dot"></span> Film Agency
+          </a>
+          <a href="../academy/index.html" class="world-tab" data-world="academy">
+            <span class="dot"></span> Academy
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-padding">
+    <div class="container">
+      
+      <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div class="section-subtitle">📅 Programación Audiovisual Unificada</div>
+          <h2 class="section-title">Agenda General del Universo BOGOSHORTS</h2>
+          <p style="color: var(--text-muted); max-width: 750px; font-size: 0.95rem;">
+            Explora las proyecciones de películas y bloques de cortometrajes. Cambia entre vista de tarjetas o vista calendario diario durante el festival.
+          </p>
+        </div>
+
+        <!-- BOTÓN SELECTOR DE MODO DE VISTA (TARJETAS vs CALENDARIO) -->
+        <div class="view-toggle-wrapper">
+          <button class="view-toggle-btn active" id="btnViewCards">
+            🎴 Vista Tarjetas
+          </button>
+          <button class="view-toggle-btn" id="btnViewCalendar">
+            📅 Modo Calendario por Días
+          </button>
+        </div>
+      </div>
+
+      <!-- PANEL DE FILTROS INTERACTIVOS -->
+      <div class="calendar-filter-bar">
+        <!-- FILTRO POR MUNDO -->
+        <div class="filter-row">
+          <span class="filter-label">Mundo:</span>
+          <button class="filter-btn active" data-filter-world="all">🌐 Todos los Mundos</button>
+          <button class="filter-btn" data-filter-world="festival" style="--active-accent: #059669;">🟢 Festival</button>
+          <button class="filter-btn" data-filter-world="movimiento" style="--active-accent: #dc2626;">🔴 Movimiento</button>
+          <button class="filter-btn" data-filter-world="agency" style="--active-accent: #d97706;">🟡 Film Agency</button>
+          <button class="filter-btn" data-filter-world="academy" style="--active-accent: #2563eb;">🔵 Academy</button>
+        </div>
+
+        <!-- FILTRO POR TIPO / COSTO / CIUDAD Y BUSCADOR -->
+        <div class="filter-row">
+          <span class="filter-label">Tipo / Acceso:</span>
+          <button class="filter-btn active" data-filter-access="all">Todos los Accesos</button>
+          <button class="filter-btn" data-filter-access="free">🎁 Gratis / Entrada Libre</button>
+          <button class="filter-btn" data-filter-access="paid">🎟️ Con Boletería</button>
+          <input type="text" class="search-input-box" id="calendarSearchInput" placeholder="🔍 Buscar por título, ciudad o cortometraje...">
+        </div>
+      </div>
+
+      <!-- VISTA 1: GRID DE TARJETAS (DEFAULT) -->
+      <div class="events-grid" id="eventsGridCards">
+        
+        <!-- EVENTO 1: FESTIVAL BOGOSHORTS -->
+        <div class="event-card" data-world="festival" data-access="paid" style="--card-world-color: #059669;">
+          <div>
+            <div class="event-card-header">
+              <span class="world-badge-tag" style="background: rgba(5, 150, 105, 0.1); color: #059669;">🟢 Festival</span>
+              <span class="price-tag paid">🎟️ $14.000 COP</span>
+            </div>
+            <h3 class="event-title">Programa 1: Ficción Colombia I</h3>
+            <div class="event-meta">
+              <span>📅 <strong>Viernes 15 de Agosto</strong> | 18:00 - 19:30</span>
+              <span>📍 <strong>Cinemateca de Bogotá</strong> (Sala Capital) — Bogotá D.C.</span>
+            </div>
+
+            <div class="shorts-lineup-preview">
+              <div class="shorts-lineup-title">🎬 Bloque de Cortos (78 min total):</div>
+              <div class="shorts-list">
+                <div class="short-item"><span>1. El Secreto del Manglar</span> <span class="short-duration">18 min</span></div>
+                <div class="short-item"><span>2. Noche de San Juan</span> <span class="short-duration">22 min</span></div>
+                <div class="short-item"><span>3. Papalotes al Viento</span> <span class="short-duration">15 min</span></div>
+                <div class="short-item"><span>4. La Sombra del Maizal</span> <span class="short-duration">23 min</span></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; padding: 0.5rem;" data-modal-target="eventDetailModal" data-event-title="Programa 1: Ficción Colombia I">
+            Ver Detalle & Reservar Boletas →
+          </button>
+        </div>
+
+        <!-- EVENTO 2: MOVIMIENTO BOGOSHORTS -->
+        <div class="event-card" data-world="movimiento" data-access="free" style="--card-world-color: #dc2626;">
+          <div>
+            <div class="event-card-header">
+              <span class="world-badge-tag" style="background: rgba(220, 38, 38, 0.1); color: #dc2626;">🔴 Movimiento</span>
+              <span class="price-tag free">🎁 Entrada Libre</span>
+            </div>
+            <h3 class="event-title">Bogoshorts al Parque: Voces Comunitarias</h3>
+            <div class="event-meta">
+              <span>📅 <strong>Sábado 16 de Agosto</strong> | 19:00 - 20:45</span>
+              <span>📍 <strong>Parque de los Deseos</strong> — Medellín, Antioquia</span>
+            </div>
+
+            <div class="shorts-lineup-preview">
+              <div class="shorts-lineup-title">🎬 Bloque de Cortos (90 min total):</div>
+              <div class="shorts-list">
+                <div class="short-item"><span>1. Voces del Río</span> <span class="short-duration">15 min</span></div>
+                <div class="short-item"><span>2. Ritmo Urbano</span> <span class="short-duration">12 min</span></div>
+                <div class="short-item"><span>3. Memoria sobre Ruedas</span> <span class="short-duration">20 min</span></div>
+                <div class="short-item"><span>4. Hijos del Asfalto</span> <span class="short-duration">18 min</span></div>
+                <div class="short-item"><span>5. La Casa de Hielo</span> <span class="short-duration">25 min</span></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-secondary" style="width: 100%; padding: 0.5rem;" data-modal-target="eventDetailModal" data-event-title="Bogoshorts al Parque: Voces Comunitarias">
+            Ver Detalle del Evento →
+          </button>
+        </div>
+
+        <!-- EVENTO 3: FILM AGENCY -->
+        <div class="event-card" data-world="agency" data-access="paid" style="--card-world-color: #d97706;">
+          <div>
+            <div class="event-card-header">
+              <span class="world-badge-tag" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">🟡 Film Agency</span>
+              <span class="price-tag paid">🎟️ Industria</span>
+            </div>
+            <h3 class="event-title">Showroom: Catálogo Iberoamericano</h3>
+            <div class="event-meta">
+              <span>📅 <strong>Lunes 18 de Agosto</strong> | 11:00 - 12:30</span>
+              <span>📍 <strong>Teatro Santander</strong> — Bucaramanga & Streaming</span>
+            </div>
+
+            <div class="shorts-lineup-preview">
+              <div class="shorts-lineup-title">🎬 Bloque de Cortos (60 min total):</div>
+              <div class="shorts-list">
+                <div class="short-item"><span>1. Canto de Grillos</span> <span class="short-duration">20 min</span></div>
+                <div class="short-item"><span>2. La Última Estación</span> <span class="short-duration">18 min</span></div>
+                <div class="short-item"><span>3. Viento del Sur</span> <span class="short-duration">22 min</span></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-secondary" style="width: 100%; padding: 0.5rem;" data-modal-target="eventDetailModal" data-event-title="Showroom: Catálogo Iberoamericano">
+            Solicitar Pase de Industria →
+          </button>
+        </div>
+
+        <!-- EVENTO 4: ACADEMY -->
+        <div class="event-card" data-world="academy" data-access="paid" style="--card-world-color: #2563eb;">
+          <div>
+            <div class="event-card-header">
+              <span class="world-badge-tag" style="background: rgba(37, 99, 235, 0.1); color: #2563eb;">🔵 Academy</span>
+              <span class="price-tag paid">🎟️ $45.000 COP</span>
+            </div>
+            <h3 class="event-title">Masterclass: Fotografía Cinematográfica</h3>
+            <div class="event-meta">
+              <span>📅 <strong>Miércoles 20 de Agosto</strong> | 15:00 - 17:30</span>
+              <span>📍 <strong>Museo de Arte Moderno (MAM)</strong> — Cali, Valle</span>
+            </div>
+
+            <div class="shorts-lineup-preview">
+              <div class="shorts-lineup-title">🎬 Casos de Estudio (55 min total):</div>
+              <div class="shorts-list">
+                <div class="short-item"><span>1. Luz de Penumbra</span> <span class="short-duration">25 min</span></div>
+                <div class="short-item"><span>2. Claroscuro en el Valle</span> <span class="short-duration">30 min</span></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; padding: 0.5rem;" data-modal-target="eventDetailModal" data-event-title="Masterclass: Fotografía Cinematográfica">
+            Inscribirse al Taller →
+          </button>
+        </div>
+
+        <!-- EVENTO 5: FESTIVAL BOGOSHORTS -->
+        <div class="event-card" data-world="festival" data-access="free" style="--card-world-color: #059669;">
+          <div>
+            <div class="event-card-header">
+              <span class="world-badge-tag" style="background: rgba(5, 150, 105, 0.1); color: #059669;">🟢 Festival</span>
+              <span class="price-tag free">🎁 Entrada Libre</span>
+            </div>
+            <h3 class="event-title">Muestra Especial: Animación Experimental</h3>
+            <div class="event-meta">
+              <span>📅 <strong>Jueves 21 de Agosto</strong> | 17:30 - 18:45</span>
+              <span>📍 <strong>Centro Cultural San Juan</strong> — Cartagena, Bolívar</span>
+            </div>
+
+            <div class="shorts-lineup-preview">
+              <div class="shorts-lineup-title">🎬 Bloque de Animación (65 min total):</div>
+              <div class="shorts-list">
+                <div class="short-item"><span>1. Sueño de Plastilina</span> <span class="short-duration">8 min</span></div>
+                <div class="short-item"><span>2. Metamorfosis</span> <span class="short-duration">10 min</span></div>
+                <div class="short-item"><span>3. Trazo Nocturno</span> <span class="short-duration">14 min</span></div>
+                <div class="short-item"><span>4. Hilos Invisibles</span> <span class="short-duration">11 min</span></div>
+                <div class="short-item"><span>5. Océano de Papel</span> <span class="short-duration">13 min</span></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-secondary" style="width: 100%; padding: 0.5rem;" data-modal-target="eventDetailModal" data-event-title="Muestra Especial: Animación Experimental">
+            Ver Detalle del Evento →
+          </button>
+        </div>
+
+        <!-- EVENTO 6: MOVIMIENTO BOGOSHORTS -->
+        <div class="event-card" data-world="movimiento" data-access="free" style="--card-world-color: #dc2626;">
+          <div>
+            <div class="event-card-header">
+              <span class="world-badge-tag" style="background: rgba(220, 38, 38, 0.1); color: #dc2626;">🔴 Movimiento</span>
+              <span class="price-tag free">🎁 Entrada Libre</span>
+            </div>
+            <h3 class="event-title">Proyección Itinerante: Cine Bajo la Luna</h3>
+            <div class="event-meta">
+              <span>📅 <strong>Viernes 22 de Agosto</strong> | 19:30 - 21:00</span>
+              <span>📍 <strong>Plaza de Bolívar</strong> — Manizales, Caldas</span>
+            </div>
+
+            <div class="shorts-lineup-preview">
+              <div class="shorts-lineup-title">🎬 Bloque Documental (80 min total):</div>
+              <div class="shorts-list">
+                <div class="short-item"><span>1. Tejedores de Paz</span> <span class="short-duration">22 min</span></div>
+                <div class="short-item"><span>2. El Guardián del Páramo</span> <span class="short-duration">18 min</span></div>
+                <div class="short-item"><span>3. Sonidos del Chocó</span> <span class="short-duration">20 min</span></div>
+                <div class="short-item"><span>4. Caminos de Sal</span> <span class="short-duration">20 min</span></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-secondary" style="width: 100%; padding: 0.5rem;" data-modal-target="eventDetailModal" data-event-title="Proyección Itinerante: Cine Bajo la Luna">
+            Ver Detalle del Evento →
+          </button>
+        </div>
+
+      </div>
+
+      <!-- VISTA 2: MODO CALENDARIO POR DÍAS (PLENO FESTIVAL) -->
+      <div class="calendar-grid-view" id="eventsGridCalendar">
+        
+        <!-- DÍA 1: VIERNES 15 DE AGOSTO (DÍA DE INAUGURACIÓN) -->
+        <div class="day-column">
+          <div class="day-header">
+            <div>
+              <div class="day-date-title">🗓️ Viernes 15 de Agosto</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Jornada Inaugural del Festival</div>
+            </div>
+            <span class="day-count-badge">4 Funciones en Simultáneo</span>
+          </div>
+
+          <div class="day-schedule-grid">
+            <!-- SLOT 1 -->
+            <div class="time-slot-card" style="--slot-color: #059669;">
+              <div class="time-badge">⏰ 14:00 - 15:30 (Sala Capital)</div>
+              <div style="font-size: 0.725rem; font-weight: 700; color: #059669; text-transform: uppercase;">🟢 Festival • $14.000</div>
+              <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">Programa 1: Ficción Internacional</h4>
+              <p style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.6rem;">4 Cortometrajes (75 min) — Cinemateca de Bogotá</p>
+              <button class="btn btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" data-modal-target="eventDetailModal" data-event-title="Programa 1: Ficción Internacional">Detalles →</button>
+            </div>
+
+            <!-- SLOT 2 -->
+            <div class="time-slot-card" style="--slot-color: #7c3aed;">
+              <div class="time-badge" style="color: #7c3aed;">⏰ 16:00 - 17:30 (Sala 3 BFM)</div>
+              <div style="font-size: 0.725rem; font-weight: 700; color: #7c3aed; text-transform: uppercase;">💼 BFM Market • Industria</div>
+              <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">In Vitro BFM: Pitch guiones</h4>
+              <p style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.6rem;">Presentaciones ante Jurados — Cinemateca Sala 3</p>
+              <button class="btn btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" data-modal-target="eventDetailModal" data-event-title="In Vitro BFM: Pitch guiones">Detalles →</button>
+            </div>
+
+            <!-- SLOT 3 -->
+            <div class="time-slot-card" style="--slot-color: #059669;">
+              <div class="time-badge">⏰ 18:00 - 19:30 (Sala Capital)</div>
+              <div style="font-size: 0.725rem; font-weight: 700; color: #059669; text-transform: uppercase;">🟢 Festival • $14.000</div>
+              <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">Programa 1: Ficción Colombia I</h4>
+              <p style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.6rem;">4 Cortometrajes (78 min) — Cinemateca de Bogotá</p>
+              <button class="btn btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" data-modal-target="eventDetailModal" data-event-title="Programa 1: Ficción Colombia I">Detalles →</button>
+            </div>
+
+            <!-- SLOT 4 -->
+            <div class="time-slot-card" style="--slot-color: #059669;">
+              <div class="time-badge">⏰ 20:30 - 23:00 (Teatro Jorge Eliécer)</div>
+              <div style="font-size: 0.725rem; font-weight: 700; color: #059669; text-transform: uppercase;">🟢 Festival • Gala Gratuita</div>
+              <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">Noche Inaugural Edición 24</h4>
+              <p style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.6rem;">Alfombra Roja & Proyección Estelar</p>
+              <button class="btn btn-primary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" data-modal-target="eventDetailModal" data-event-title="Noche Inaugural Edición 24">Reservar Boleta →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 2: SÁBADO 16 DE AGOSTO -->
+        <div class="day-column">
+          <div class="day-header">
+            <div>
+              <div class="day-date-title">🗓️ Sábado 16 de Agosto</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Competencia Oficial & Imaginatón</div>
+            </div>
+            <span class="day-count-badge">5 Funciones en Simultáneo</span>
+          </div>
+
+          <div class="day-schedule-grid">
+            <!-- SLOT 1 -->
+            <div class="time-slot-card" style="--slot-color: #ea580c;">
+              <div class="time-badge" style="color: #ea580c;">⏰ 00:00 (Medianoche)</div>
+              <div style="font-size: 0.725rem; font-weight: 700; color: #ea580c; text-transform: uppercase;">🎬 Imaginatón • Gratis</div>
+              <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">Arranque Maratón 48h</h4>
+              <p style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.6rem;">Lanzamiento de consigna en vivo</p>
+              <button class="btn btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" data-modal-target="eventDetailModal" data-event-title="Arranque Maratón 48h">Ver Consigna →</button>
+            </div>
+
+            <!-- SLOT 2 -->
+            <div class="time-slot-card" style="--slot-color: #059669;">
+              <div class="time-badge">⏰ 15:00 - 16:30 (Cinemateca)</div>
+              <div style="font-size: 0.725rem; font-weight: 700; color: #059669; text-transform: uppercase;">🟢 Festival • $14.000</div>
+              <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">Competencia F3 - VR / XR</h4>
+              <p style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.6rem;">Experiencias inmersivas</p>
+              <button class="btn btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" data-modal-target="eventDetailModal" data-event-title="Competencia F3 - VR / XR">Detalles →</button>
+            </div>
+
+            <!-- SLOT 3 -->
+            <div class="time-slot-card" style="--slot-color: #dc2626;">
+              <div class="time-badge" style="color: #dc2626;">⏰ 19:00 - 20:45 (Medellín)</div>
+              <div style="font-size: 0.725rem; font-weight: 700; color: #dc2626; text-transform: uppercase;">🔴 Movimiento • Entrada Libre</div>
+              <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">Bogoshorts al Parque</h4>
+              <p style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.6rem;">5 Cortometrajes — Parque de los Deseos</p>
+              <button class="btn btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" data-modal-target="eventDetailModal" data-event-title="Bogoshorts al Parque: Voces Comunitarias">Detalles →</button>
+            </div>
+
+            <!-- SLOT 4 -->
+            <div class="time-slot-card" style="--slot-color: #059669;">
+              <div class="time-badge">⏰ 21:30 - 00:00 (Cinemateca)</div>
+              <div style="font-size: 0.725rem; font-weight: 700; color: #059669; text-transform: uppercase;">🟢 Festival • $14.000</div>
+              <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">Noche Frankenstein</h4>
+              <p style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.6rem;">Cine Bizarro & Fantástico</p>
+              <button class="btn btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" data-modal-target="eventDetailModal" data-event-title="Noche Frankenstein">Detalles →</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER UNIFICADO GLOBAL -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">UNIVERSO BOGOSHORTS</div>
+          <p class="footer-desc">El ecosistema de cortometraje más influyente de la región.</p>
+        </div>
+        <div>
+          <h5 class="footer-col-title">Mundus</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html">Universo</a></li>
+            <li><a href="../movimiento/index.html">Movimiento</a></li>
+            <li><a href="../festival/index.html">Festival</a></li>
+            <li><a href="../film-agency/index.html">Film Agency</a></li>
+            <li><a href="../academy/index.html">Academy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-col-title">Menú Universo</h5>
+          <ul class="footer-links">
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Historia">Historia</a></li>
+            <li><a href="index.html">Agenda</a></li>
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Convocatorias">Convocatorias</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-col-title">Contacto Agenda</h5>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">agenda@bogoshorts.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 UNIVERSO BOGOSHORTS - Agenda & Programación.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DE DETALLE DEL EVENTO SIMULADO -->
+  <div class="modal-backdrop" id="eventDetailModal">
+    <div class="modal-content" style="max-width: 620px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eventDetailModalTitle">Detalle de la Función</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        Esta función reúne varios cortometrajes para completar el bloque de tiempo programado en sala.
+      </div>
+
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+        <h4 style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+          Ficha Técnica del Bloque:
+        </h4>
+        <ul style="font-size: 0.85rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem;">
+          <li>📍 <strong>Lugar:</strong> Sala de Proyección Principal</li>
+          <li>🎟️ <strong>Modalidad:</strong> Presencial con aforo controlado</li>
+          <li>⏱️ <strong>Duración Total:</strong> Entre 60 y 90 minutos</li>
+        </ul>
+        <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 0.5rem;">
+          Cortometrajes en esta función:
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-main);">
+          Incluye ficha detallada de cada cortometraje, director, sinopsis y país de origen.
+        </p>
+      </div>
+
+      <button class="btn btn-primary" style="width: 100%;" onclick="closeModal(); showToast('¡Boletas reservadas / confirmadas con éxito!');">
+        🎟️ Confirmar Asistencia / Boletería
+      </button>
+    </div>
+  </div>
+
+  <!-- MODALS -->
+  <div class="modal-backdrop" id="newsletterModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Boletín Universo BOGOSHORTS</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="newsletterForm">
+        <div class="form-group">
+          <label class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-input" placeholder="tu@email.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Suscribirse</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="genericModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Sección del Universo</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">Vista de la sección institucional del Universo.</p>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Calendar view switcher & filtering logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const btnViewCards = document.getElementById('btnViewCards');
+      const btnViewCalendar = document.getElementById('btnViewCalendar');
+      const gridCards = document.getElementById('eventsGridCards');
+      const gridCalendar = document.getElementById('eventsGridCalendar');
+
+      // View Switcher logic
+      btnViewCards.addEventListener('click', () => {
+        btnViewCards.classList.add('active');
+        btnViewCalendar.classList.remove('active');
+        gridCards.style.display = 'grid';
+        gridCalendar.style.display = 'none';
+      });
+
+      btnViewCalendar.addEventListener('click', () => {
+        btnViewCalendar.classList.add('active');
+        btnViewCards.classList.remove('active');
+        gridCards.style.display = 'none';
+        gridCalendar.style.display = 'flex';
+      });
+
+      // Filter logic
+      const worldButtons = document.querySelectorAll('[data-filter-world]');
+      const accessButtons = document.querySelectorAll('[data-filter-access]');
+      const searchInput = document.getElementById('calendarSearchInput');
+      const eventCards = document.querySelectorAll('.event-card');
+
+      let currentWorld = 'all';
+      let currentAccess = 'all';
+      let currentQuery = '';
+
+      function filterEvents() {
+        eventCards.forEach(card => {
+          const cardWorld = card.getAttribute('data-world');
+          const cardAccess = card.getAttribute('data-access');
+          const cardText = card.textContent.toLowerCase();
+
+          const matchesWorld = (currentWorld === 'all' || cardWorld === currentWorld);
+          const matchesAccess = (currentAccess === 'all' || cardAccess === currentAccess);
+          const matchesQuery = (currentQuery === '' || cardText.includes(currentQuery));
+
+          if (matchesWorld && matchesAccess && matchesQuery) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      worldButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          worldButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentWorld = btn.getAttribute('data-filter-world');
+          filterEvents();
+        });
+      });
+
+      accessButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          accessButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentAccess = btn.getAttribute('data-filter-access');
+          filterEvents();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value.toLowerCase().trim();
+          filterEvents();
+        });
+      }
+
+      // Event detail modal binding
+      document.querySelectorAll('[data-event-title]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const title = btn.getAttribute('data-event-title');
+          const modalTitle = document.getElementById('eventDetailModalTitle');
+          if (modalTitle) modalTitle.textContent = title;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

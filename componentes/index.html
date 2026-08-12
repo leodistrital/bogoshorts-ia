@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Componentes Simulados - Universo BOGOSHORTS</title>
+  <meta name="description" content="Galería interactiva y catálogo de componentes de interfaz reutilizables para la plataforma Universo BOGOSHORTS.">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="theme-universo">
+
+  <!-- STICKY HEADER SYSTEM -->
+  <header class="sticky-header-wrapper">
+    <!-- 1. CABEZOTE (UTILITY BAR) -->
+    <div class="cabezote-bar">
+      <div class="container cabezote-content">
+        <div class="brand-identity">
+          <a href="../index.html" class="logo-symbol">B</a>
+          <span class="brand-name">UNIVERSO BOGOSHORTS</span>
+          <span class="brand-badge">Catálogo UI</span>
+        </div>
+        <div class="cabezote-actions">
+          <button class="cabezote-btn" id="langToggleBtn" data-lang="ES" title="Cambiar Idioma">
+            🌐 <span class="lang-text">ES</span>
+          </button>
+          <button class="cabezote-btn" data-modal-target="genericModal" data-modal-title="Comunidades UI">
+            👥 <span>Comunidades</span>
+          </button>
+          <button class="cabezote-btn btn-primary" data-modal-target="newsletterModal">
+            ✉️ <span>Newsletter</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. MENÚ DE UNIVERSO (GLOBAL LAYER 1) -->
+    <div class="universo-nav-bar">
+      <div class="container universo-nav-content">
+        <span class="universo-nav-label">Navegación Global:</span>
+        <ul class="universo-menu-links">
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Historia BOGOSHORTS">Historia</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Miembros de la Red">Miembros</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Agenda de Eventos">Agenda</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Convocatorias Abiertas">Convocatorias</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="BOGOSHOP (Tienda Oficial)">Bogoshop</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Archivo Cinematográfico">Archivo</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Equipo BOGOSHORTS">Equipo</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Aliados y Coproductores">Aliados</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Trabaje con Nosotros">Trabaje con Nosotros</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Donar y Apoyar">Donar / Apoyar</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Sala de Prensa">Prensa</a></li>
+          <li><a href="#" class="universo-link" data-modal-target="genericModal" data-modal-title="Contacto General">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. ACCESO A LOS MUNDOS (LAYER 2 SWITCHER) -->
+    <div class="world-switcher-bar">
+      <div class="container world-switcher-content">
+        <nav class="world-tabs">
+          <a href="../index.html" class="world-tab" data-world="universo">
+            <span class="dot"></span> Universo Hub
+          </a>
+          <a href="../movimiento/index.html" class="world-tab" data-world="movimiento">
+            <span class="dot"></span> Movimiento
+          </a>
+          <a href="../festival/index.html" class="world-tab" data-world="festival">
+            <span class="dot"></span> Festival
+          </a>
+          <a href="../film-agency/index.html" class="world-tab" data-world="agency">
+            <span class="dot"></span> Film Agency
+          </a>
+          <a href="../academy/index.html" class="world-tab" data-world="academy">
+            <span class="dot"></span> Academy
+          </a>
+          <a href="index.html" class="world-tab active" data-world="componentes">
+            ⚡ Componentes Simulados
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PAGE CONTENT -->
+  <main class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Librería & Sandbox</div>
+        <h1 class="section-title">Componentes Simulados del Ecosistema</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">
+          Esta página reúne la demostración interactiva de todos los módulos UI especificados en la arquitectura unificada y los documentos de análisis.
+        </p>
+      </div>
+
+      <div class="components-sidebar-layout">
+        <!-- SIDEBAR NAV -->
+        <aside class="comp-sidebar">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 0.75rem;">
+            Índice de Módulos
+          </div>
+          <nav style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <a href="#comp-cabezote" class="comp-nav-link active">1. Cabezote & Idioma</a>
+            <a href="#comp-menu-universo" class="comp-nav-link">2. Menú de Universo</a>
+            <a href="#comp-world-switcher" class="comp-nav-link">3. Switcher de Mundos</a>
+            <a href="#comp-mosaico" class="comp-nav-link">4. Mosaico de Colores</a>
+            <a href="#comp-calificador" class="comp-nav-link">5. Badge Calificador A</a>
+            <a href="#comp-footer" class="comp-nav-link">6. Footer Unificado</a>
+          </nav>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <div>
+          <!-- COMPONENT 1: CABEZOTE -->
+          <div class="comp-box" id="comp-cabezote">
+            <div class="comp-box-title">
+              <span>1. Cabezote Superior (Utility Bar)</span>
+              <span class="comp-tag">Global</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Barra de utilidades que vive en el nivel superior de toda la plataforma. Incluye selector de idioma interactivo (ES/EN), acceso a comunidades y suscripción a newsletter (sin buscador).
+            </p>
+            <div class="comp-preview">
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span class="logo-symbol" style="width: 28px; height: 28px; font-size: 0.8rem;">B</span>
+                  <strong>UNIVERSO BOGOSHORTS</strong>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="btn btn-secondary" style="padding: 0.3rem 0.7rem; font-size: 0.8rem;" onclick="document.getElementById('langToggleBtn').click()">Simular Cambio Idioma 🌐</button>
+                  <button class="btn btn-primary" style="padding: 0.3rem 0.7rem; font-size: 0.8rem;" data-modal-target="newsletterModal">Simular Newsletter ✉️</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPONENT 2: MENÚ DE UNIVERSO -->
+          <div class="comp-box" id="comp-menu-universo">
+            <div class="comp-box-title">
+              <span>2. Menú de Universo (Capa 1 - Navegación Transversal)</span>
+              <span class="comp-tag">Nivel Hub</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Menú global presente en la franja superior de todos los mundos. Contiene los 12 accesos institucionales compartidos en el mapa del sitio.
+            </p>
+            <div class="comp-preview">
+              <div class="universo-menu-links" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Historia">Historia</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Miembros">Miembros</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Agenda">Agenda</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Convocatorias">Convocatorias</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Bogoshop">Bogoshop</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Archivo">Archivo</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Equipo">Equipo</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Aliados">Aliados</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Trabaje con nosotros">Trabaje con nosotros</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Donar">Donar / Apoyar</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Prensa">Prensa</span>
+                <span class="tag" style="cursor: pointer;" data-modal-target="genericModal" data-modal-title="Contacto">Contacto</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPONENT 3: SWITCHER DE MUNDOS -->
+          <div class="comp-box" id="comp-world-switcher">
+            <div class="comp-box-title">
+              <span>3. Switcher de Mundos (Capa 2 - Nodos)</span>
+              <span class="comp-tag">Cross-linking</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Barra de navegación entre mundos con código cromático distintivo. Permite saltar entre carpetas sin perder la referencia del Universo.
+            </p>
+            <div class="comp-preview">
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <a href="../index.html" class="world-tab" data-world="universo" style="border: 1px solid var(--color-universo); color: var(--color-universo); background: rgba(109, 40, 217, 0.06);">
+                  <span class="dot" style="background: var(--color-universo);"></span> Universo Hub
+                </a>
+                <a href="../movimiento/index.html" class="world-tab" data-world="movimiento" style="border: 1px solid var(--color-movimiento); color: var(--color-movimiento); background: rgba(220, 38, 38, 0.06);">
+                  <span class="dot" style="background: var(--color-movimiento);"></span> Movimiento
+                </a>
+                <a href="../festival/index.html" class="world-tab" data-world="festival" style="border: 1px solid var(--color-festival); color: var(--color-festival); background: rgba(5, 150, 105, 0.06);">
+                  <span class="dot" style="background: var(--color-festival);"></span> Festival
+                </a>
+                <a href="../film-agency/index.html" class="world-tab" data-world="agency" style="border: 1px solid var(--color-agency); color: var(--color-agency); background: rgba(217, 119, 6, 0.06);">
+                  <span class="dot" style="background: var(--color-agency);"></span> Film Agency
+                </a>
+                <a href="../academy/index.html" class="world-tab" data-world="academy" style="border: 1px solid var(--color-academy); color: var(--color-academy); background: rgba(37, 99, 235, 0.06);">
+                  <span class="dot" style="background: var(--color-academy);"></span> Academy
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPONENT 4: MOSAICO DE COLORES -->
+          <div class="comp-box" id="comp-mosaico">
+            <div class="comp-box-title">
+              <span>4. Mosaico de Secciones en Colores (Festival)</span>
+              <span class="comp-tag">UX UI Grid</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Módulo de navegación por bloques de color citado explícitamente en la estrategia UX del Festival.
+            </p>
+            <div class="comp-preview">
+              <div class="mosaic-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="mosaic-item color-1">
+                  <h5 class="mosaic-title">Competencia Nacional</h5>
+                  <div class="mosaic-desc">Rojo — Cine Colombiano</div>
+                </div>
+                <div class="mosaic-item color-2">
+                  <h5 class="mosaic-title">Competencia Internacional</h5>
+                  <div class="mosaic-desc">Verde — Selección Mundial</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPONENT 5: CALIFICADOR A -->
+          <div class="comp-box" id="comp-calificador">
+            <div class="comp-box-title">
+              <span>5. Badge Calificador A (Oscars® & Goya)</span>
+              <span class="comp-tag">Footer Widget</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Sello institucional compartido en el pie de página de todos los mundos del Universo.
+            </p>
+            <div class="comp-preview">
+              <div class="calificador-a-badge" style="margin-top: 0;">
+                <span class="calificador-a-icon">🏆</span>
+                <div class="calificador-a-text">
+                  <strong>Calificador A Premios Oscar® / BAFTA / Goya</strong><br>
+                  Los ganadores de la Santa Lucía quedan automáticamente inscritos en consideración de la Academia.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER UNIFICADO GLOBAL -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">UNIVERSO BOGOSHORTS</div>
+          <p class="footer-desc">El ecosistema de cortometraje más influyente de la región.</p>
+        </div>
+        <div>
+          <h5 class="footer-col-title">Mundus</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html">Universo Hub</a></li>
+            <li><a href="../movimiento/index.html">Movimiento</a></li>
+            <li><a href="../festival/index.html">Festival</a></li>
+            <li><a href="../film-agency/index.html">Film Agency</a></li>
+            <li><a href="../academy/index.html">Academy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-col-title">Menú Universo</h5>
+          <ul class="footer-links">
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Historia">Historia</a></li>
+            <li><a href="#" data-modal-target="genericModal" data-modal-title="Convocatorias">Convocatorias</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-col-title">Contacto UI</h5>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">ui@bogoshorts.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 UNIVERSO BOGOSHORTS - Catálogo UI.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div class="modal-backdrop" id="newsletterModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Boletín Universo BOGOSHORTS</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="newsletterForm">
+        <div class="form-group">
+          <label class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-input" placeholder="tu@email.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Suscribirse</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="genericModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Sección del Universo</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">Vista simulada de la sección institucional del Universo.</p>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

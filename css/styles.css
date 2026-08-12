@@ -243,6 +243,11 @@ ul {
   background: #ffffff;
 }
 
+/* VISIBILIDAD: Ocultar el Menú Global de Universo al entrar a cualquier Mundo específico */
+body:not(.theme-universo) .universo-nav-bar {
+  display: none !important;
+}
+
 .universo-nav-content {
   display: flex;
   align-items: center;
@@ -373,7 +378,7 @@ ul {
 }
 .world-tab[data-world="academy"] .dot { background: var(--color-academy); }
 
-/* World Menu Bar (Sub-navigation specific to active world - CON WRAP EN DOS RENGLONES) */
+/* World Menu Bar (Sub-navigation specific to active world) */
 .world-menu-bar {
   background: #ffffff;
   padding: 0.65rem 0;
